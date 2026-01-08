@@ -36,7 +36,7 @@ Based on the comprehensive [Swift Concurrency Course](https://www.swiftconcurren
 
 ### Option B: Manual install
 1) **Clone** this repository.  
-2) **Install or symlink** the `swift-concurrency/` folder following your tool’s official skills installation docs (see links above).  
+2) **Install or symlink** the `swift-concurrency/` folder following your tool’s official skills installation docs (see links below).  
 3) **Use your AI tool** as usual and ask it to use the “swift-concurrency” skill for Swift Concurrency tasks.
 
 #### Where to Save Skills
