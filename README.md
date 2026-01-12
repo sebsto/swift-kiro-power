@@ -126,7 +126,9 @@ swift-concurrency/
     ├── core-data.md            # Core Data integration patterns
     ├── performance.md          # Optimization with Xcode Instruments
     ├── testing.md              # Testing concurrent code
-    └── migration.md            # Step-by-step Swift 6 migration guide
+    ├── migration.md            # Step-by-step Swift 6 migration guide
+    ├── glossary.md             # Terms & concepts for Swift Concurrency
+    └── linting.md              # Linting rules for strict concurrency
 ```
 
 ## Contributing
