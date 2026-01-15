@@ -1,147 +1,141 @@
-<p align="center">
-    <a href="https://www.swiftconcurrencycourse.com?utm_source=github&utm_medium=agent-skill&utm_campaign=swift-concurrency-skill">
-        <img width="900px" src="assets/github_readme_banner.jpg" alt="Swift Concurrency Agent Skill banner">
-    </a>
-</p>
+# Swift 6 Expert Power for Kiro
 
-# Swift Concurrency Agent Skill
+Expert guidance for Swift 6 development on Apple platforms. This Kiro power provides comprehensive support for modern Swift programming, including language features, API design, concurrency patterns, and best practices.
 
-Expert guidance for any AI coding tool that supports the [Agent Skills open format](https://agentskills.io/home) — safe concurrency, performance, and Swift 6+ migration.
+## What This Power Provides
 
-Based on the comprehensive [Swift Concurrency Course](https://www.swiftconcurrencycourse.com?utm_source=github&utm_medium=agent-skill&utm_campaign=swift-concurrency-skill), distilled into actionable, concise references for agents.
+- **Swift 6 Language Features** - Modern syntax, strict concurrency, and migration strategies
+- **API Design Guidelines** - Write clear, idiomatic Swift code following Apple's conventions
+- **Concurrency Expertise** - Deep knowledge of async/await, actors, tasks, and Sendable
+- **Platform Development** - iOS, iPadOS, macOS, watchOS, and visionOS guidance
+- **Testing Support** - Swift Testing framework and async testing patterns
+- **Framework Integration** - SwiftUI, UIKit, AppKit, Core Data, and more
 
-## Who this is for
-- Teams migrating to Swift 6 / strict concurrency who need safe defaults and quick triage.
-- Developers debugging data races, isolation errors, or flaky async tests.
-- Anyone wanting performance-minded concurrency patterns (actors, tasks, Sendable, async streams).
+## Who Should Use This Power
 
-## How to Use This Skill
+This power is ideal for developers who:
 
-### Option A: Using OpenSkills (recommended)
-1) Install OpenSkills:  
-   ```bash
-   npm i -g openskills
-   ```
-2) `cd` into your project directory.  
-3) Install this skill:  
-   ```bash
-   openskills install avdlee/Swift-Concurrency-Agent-Skill
-   ```
-4) Sync into your `AGENTS.md`:  
-   ```bash
-   openskills sync
-   ```
-5) Use the skill in your AI agent, for example:  
-   > Use the swift concurrency skill and analyze the current project for Swift Concurrency improvements
+- Are migrating to Swift 6 or enabling strict concurrency checking
+- Want to write idiomatic, well-designed Swift APIs
+- Need help with async/await, actors, or data race safety
+- Are building apps for Apple platforms
+- Want to follow Swift best practices and conventions
+- Need guidance on testing concurrent code
 
-### Option B: Manual install
-1) **Clone** this repository.  
-2) **Install or symlink** the `swift-concurrency/` folder following your tool’s official skills installation docs (see links below).  
-3) **Use your AI tool** as usual and ask it to use the “swift-concurrency” skill for Swift Concurrency tasks.
+## What's Included
 
-#### Where to Save Skills
+### Core Documentation
 
-Follow your tool’s official documentation, here are a few popular ones:
-- **Codex:** [Where to save skills](https://developers.openai.com/codex/skills/#where-to-save-skills)
-- **Claude:** [Using Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview#using-skills)
-- **Cursor:** [Enabling Skills](https://cursor.com/docs/context/skills#enabling-skills)
+- **POWER.md** - Main power documentation with agent behavior guidelines
+- **swift.md** - Platform-specific guidance for Apple ecosystem development
+- **swift-api-design-guidelines.md** - Comprehensive API design conventions
 
-**How to verify**: 
+### Swift Concurrency Deep Dive
 
-Your agent should reference the triage/playbook in `swift-concurrency/SKILL.md` and jump into the relevant reference file for your error or task.
+The `steering/swift-concurrency/` directory contains 13 detailed guides covering:
 
-## What This Skill Offers
+- Async/await fundamentals and patterns
+- Actors, @MainActor, and isolation
+- Tasks, task groups, and structured concurrency
+- Sendable conformance and type safety
+- Threading model and suspension points
+- Memory management in concurrent code
+- Performance optimization with Instruments
+- Testing async code
+- Core Data integration
+- Migration strategies for Swift 6
+- Linting and code quality
+- AsyncSequence and streaming data
 
-This skill gives your AI coding tool comprehensive Swift Concurrency guidance. It can:
+## Quick Start
 
-### Guide Your Concurrency Decisions
-- Choose the right tool for the job (async/await, actors, tasks, task groups)
-- Understand when to use `@MainActor`, custom actors, or `nonisolated`
-- Navigate isolation domains and prevent data races at compile time
-- Apply `Sendable` conformance correctly for value and reference types
+1. **Install the Power** in Kiro through the Powers panel
+2. **Mention Swift topics** in your chat - the power activates automatically on keywords like:
+   - swift, swift6, async, await, actor, sendable
+   - ios, macos, swiftui, api-design
+   - concurrency, migration, testing
+3. **Get Expert Guidance** - The agent will reference the appropriate steering files for your specific needs
 
-### Write Safe Concurrent Code
-- Avoid common pitfalls like actor reentrancy and retain cycles
-- Prevent data races with proper isolation
-- Handle task cancellation and error propagation correctly
-- Manage memory safely in concurrent contexts
+## Example Use Cases
 
-### Optimize Performance
-- Choose between serialized, asynchronous, and parallel execution
-- Reduce actor contention and unnecessary suspension points
-- Understand the tradeoffs of parallelism
-
-### Migrate to Swift 6
-- Step-by-step migration strategies for existing codebases
-- Enable strict concurrency checking incrementally
-- Rewrite closure-based code to async/await
-- Migrate from Combine/RxSwift to Swift Concurrency
-- Use migration tooling for upcoming Swift features
-
-### Test Concurrent Code
-- Write reliable tests using Swift Testing (recommended) or XCTest
-- Handle `@MainActor` isolation in tests
-- Use `withMainSerialExecutor` for deterministic testing
-- Avoid flaky tests with proper async handling
-
-### Integrate with Core Data
-- Safely pass data between isolation domains using `NSManagedObjectID`
-- Implement the Data Access Object (DAO) pattern
-- Use custom actor executors when needed
-- Avoid common Core Data concurrency pitfalls
-
-## What Makes This Skill Different
-
-**Expert Knowledge**: Based on real-world experience migrating large production codebases to Swift 6, distilled from the comprehensive [Swift Concurrency Course](https://www.swiftconcurrencycourse.com?utm_source=github&utm_medium=agent-skill&utm_campaign=swift-concurrency-skill).
-
-**Non-Opinionated**: Focuses on industry-standard best practices and compile-time safety, not architectural preferences. Works with any Swift project, coding style, or architecture.
-
-**Swift 6.2 Ready**: Covers the latest Swift Concurrency features including:
-- Default Actor Isolation
-- `isolated deinit`
-- Global Actor Conformance for protocols
-- `nonisolated(nonsending)` and `@concurrent`
-- Approachable Concurrency build settings
-- Concurrency-safe notifications (iOS 26+)
-
-**Practical & Concise**: Assumes your AI agent is already smart. Focuses on what developers need to know, not what they already understand. Includes code examples for every pattern.
-
-## See it in action
-[![Youtube Video](assets/agent_skills_watch_on_youtube.png)](https://www.youtube.com/watch?v=khekVi1PK3o)
-
-
-## Skill Structure
-
+### API Design
+```swift
+// Get guidance on naming conventions and Swift idioms
+"How should I name this method that removes items from a collection?"
 ```
-swift-concurrency/
-├── SKILL.md                    # Main skill file with decision trees
-└── references/
-    ├── async-await-basics.md   # Fundamentals of async/await syntax
-    ├── tasks.md                # Task lifecycle, cancellation, priorities
-    ├── sendable.md             # Isolation domains and Sendable conformance
-    ├── actors.md               # Actor isolation, global actors, reentrancy
-    ├── async-sequences.md      # AsyncSequence and AsyncStream patterns
-    ├── threading.md            # Threads vs tasks, suspension points
-    ├── memory-management.md    # Retain cycles, weak self, isolated deinit
-    ├── core-data.md            # Core Data integration patterns
-    ├── performance.md          # Optimization with Xcode Instruments
-    ├── testing.md              # Testing concurrent code
-    ├── migration.md            # Step-by-step Swift 6 migration guide
-    ├── glossary.md             # Terms & concepts for Swift Concurrency
-    └── linting.md              # Linting rules for strict concurrency
+
+### Concurrency
+```swift
+// Learn about actor isolation and data race safety
+"I'm getting a Sendable warning when passing this class to an actor"
 ```
+
+### Migration
+```swift
+// Step-by-step Swift 6 migration help
+"How do I enable strict concurrency checking in my project?"
+```
+
+### Testing
+```swift
+// Modern testing patterns
+"How do I test this async function with Swift Testing?"
+```
+
+## Key Features
+
+### Intelligent Guidance
+
+The power provides context-aware recommendations:
+- Analyzes your project settings (Swift version, concurrency level)
+- Identifies isolation boundaries before suggesting fixes
+- Recommends minimal, reviewable changes
+- Avoids blanket solutions like adding @MainActor everywhere
+
+### Comprehensive Coverage
+
+From basics to advanced topics:
+- Simple async/await conversions
+- Complex actor reentrancy scenarios
+- Custom actor executors
+- Region-based isolation
+- Migration tooling and strategies
+
+### Best Practices Built-In
+
+Follows established Swift conventions:
+- Swift API Design Guidelines
+- Apple platform idioms
+- Structured concurrency patterns
+- Modern testing approaches
+
+## Attribution
+
+The Swift Concurrency content is based on the comprehensive [Swift Concurrency Course](https://www.swiftconcurrencycourse.com) by Antoine van der Lee.
+
+Swift API Design Guidelines content is adapted from [Swift.org API Design Guidelines](https://www.swift.org/documentation/api-design-guidelines/).
+
+## Installation
+
+1. Open Kiro IDE
+2. Navigate to the Powers panel
+3. Click "Add Custom Power"
+4. Enter this repository URL: `https://github.com/sebsto/swift-kiro-power`
+5. Click Add
+
+The power will be installed and automatically activated when you mention relevant Swift keywords in your conversations.
 
 ## Contributing
 
-Found an issue or have a suggestion? Feel free to open a PR. This skill is maintained to reflect the latest Swift Concurrency best practices and will be updated as the language evolves.
-
-## About the Author
-
-Created by [Antoine van der Lee](https://www.avanderlee.com), a Swift Concurrency expert and creator of the [Swift Concurrency Course](https://www.swiftconcurrencycourse.com?utm_source=github&utm_medium=agent-skill&utm_campaign=swift-concurrency-skill). With years of experience in Swift & Swift Concurrency, this skill distills practical knowledge into actionable guidance for AI assistants. He [published tens of articles on Swift Concurrency](https://www.avanderlee.com/category/concurrency/) on his blog called SwiftLee.
+Contributions are welcome! Please feel free to submit issues or pull requests to improve the documentation and guidance.
 
 ## License
 
-This skill is open-source and available under the MIT License. See [LICENSE](LICENSE) for details.
+See [LICENSE.txt](LICENSE.txt) for details.
 
+## Support
 
-
+For questions about using this power or Swift 6 development:
+- Check the detailed steering files in this repository
+- Visit the [Swift Concurrency Course](https://www.swiftconcurrencycourse.com)
+- Consult Apple's official Swift documentation

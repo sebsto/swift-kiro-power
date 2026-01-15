@@ -1,0 +1,9 @@
+swift-kiro-power
+Copyright 2026 Amazon.com, Inc. or its affiliates. All Rights Reserved. 
+
+---
+
+This product contains a derivation various code and scripts from Antoine Van der Lee, under MIT License.
+
+https://github.com/AvdLee/Swift-Concurrency-Agent-Skill
+
