@@ -120,7 +120,7 @@ Swift API Design Guidelines content is adapted from [Swift.org API Design Guidel
 1. Open Kiro IDE
 2. Navigate to the Powers panel
 3. Click "Add Custom Power"
-4. Enter this repository URL: `https://github.com/sebsto/swift-kiro-power`
+4. Enter this repository URL: `https://github.com/sebsto/swift-kiro-power/tree/main/swift-expert`
 5. Click Add
 
 The power will be installed and automatically activated when you mention relevant Swift keywords in your conversations.

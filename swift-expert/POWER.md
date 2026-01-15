@@ -10,6 +10,37 @@ version: 1.0.0
 
 Expert guidance on Swift 6 development. This power provides comprehensive support for modern Swift programming, including language features, API design guidelines, concurrency patterns, framework integration, and migration strategies.
 
+## Onboarding
+
+### Required Extension
+
+This power requires the Swift language extension for optimal functionality. The extension provides:
+- Swift syntax highlighting and IntelliSense
+- Code completion and navigation
+- Build task integration
+- Debugging support
+
+**Installation Steps:**
+
+1. Open the Extensions view in Kiro (Ctrl/Cmd+Shift+X)
+2. Search for "Swift" by Swift Server Work Group
+3. Click Install on the official Swift extension
+4. Reload Kiro when prompted
+
+**Alternative:** Install directly from [Open VSX Registry](https://open-vsx.org/extension/swiftlang/swift-vscode)
+
+**Verification:**
+
+After installation, open a `.swift` file and verify:
+- Syntax highlighting is active
+- Code completion works (type a few characters and press Ctrl+Space)
+- You can navigate to definitions (Cmd/Ctrl+Click on symbols)
+
+If you encounter issues, ensure you have:
+- Xcode installed (macOS) or Swift toolchain installed (Linux)
+- Swift command-line tools accessible in your PATH
+- Workspace opened with Swift files
+
 ## When to Use This Power
 
 Activate this power when working with:
