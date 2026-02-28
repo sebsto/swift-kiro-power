@@ -1,11 +1,7 @@
 ---
-name: swift6-concurrency-expert
-displayName: Swift 6 Concurrency Expert
-description: "Expert guidance on Swift Concurrency best practices, patterns, and implementation. Use when developers mention: (1) Swift Concurrency, async/await, actors, or tasks, (2) \"use Swift Concurrency\" or \"modern concurrency patterns\", (3) migrating to Swift 6, (4) data races or thread safety issues, (5) refactoring closures to async/await, (6) @MainActor, Sendable, or actor isolation, (7) concurrent code architecture or performance optimization, (8) concurrency-related linter warnings (SwiftLint or similar; e.g. async_without_await, Sendable/actor isolation/MainActor lint)."
-keywords: [swift, swift6, concurrency, async, await, actor, sendable, api-design, migration, api design]
-version: 1.1.0
+name: swift-concurrency
+description: 'Expert guidance on Swift Concurrency best practices, patterns, and implementation. Use when developers mention: (1) Swift Concurrency, async/await, actors, or tasks, (2) "use Swift Concurrency" or "modern concurrency patterns", (3) migrating to Swift 6, (4) data races or thread safety issues, (5) refactoring closures to async/await, (6) @MainActor, Sendable, or actor isolation, (7) concurrent code architecture or performance optimization, (8) concurrency-related linter warnings (SwiftLint or similar; e.g. async_without_await, Sendable/actor isolation/MainActor lint).'
 ---
-
 # Swift Concurrency
 
 ## Overview
@@ -64,49 +60,49 @@ If any of these are unknown, ask the developer to confirm them before giving mig
 When a developer needs concurrency guidance, follow this decision tree:
 
 1. **Starting fresh with async code?**
-   - Read `steering/swift-concurrency/async-await-basics.md` for foundational patterns
-   - For parallel operations → `steering/swift-concurrency/tasks.md` (async let, task groups)
+   - Read `concurrency/async-await-basics.md` for foundational patterns
+   - For parallel operations → `concurrency/tasks.md` (async let, task groups)
 
 2. **Protecting shared mutable state?**
-   - Need to protect class-based state → `steering/swift-concurrency/actors.md` (actors, @MainActor)
-   - Need thread-safe value passing → `steering/swift-concurrency/sendable.md` (Sendable conformance)
+   - Need to protect class-based state → `concurrency/actors.md` (actors, @MainActor)
+   - Need thread-safe value passing → `concurrency/sendable.md` (Sendable conformance)
 
 3. **Managing async operations?**
-   - Structured async work → `steering/swift-concurrency/tasks.md` (Task, child tasks, cancellation)
-   - Streaming data → `steering/swift-concurrency/async-sequences.md` (AsyncSequence, AsyncStream)
+   - Structured async work → `concurrency/tasks.md` (Task, child tasks, cancellation)
+   - Streaming data → `concurrency/async-sequences.md` (AsyncSequence, AsyncStream)
 
 4. **Working with legacy frameworks?**
-   - Core Data integration → `steering/swift-concurrency/core-data.md`
-   - General migration → `steering/swift-concurrency/migration.md`
+   - Core Data integration → `concurrency/core-data.md`
+   - General migration → `concurrency/migration.md`
 
 5. **Performance or debugging issues?**
-   - Slow async code → `steering/swift-concurrency/performance.md` (profiling, suspension points)
-   - Testing concerns → `steering/swift-concurrency/testing.md` (XCTest, Swift Testing)
+   - Slow async code → `concurrency/performance.md` (profiling, suspension points)
+   - Testing concerns → `concurrency/testing.md` (XCTest, Swift Testing)
 
 6. **Understanding threading behavior?**
-   - Read `steering/swift-concurrency/threading.md` for thread/task relationship and isolation
+   - Read `concurrency/threading.md` for thread/task relationship and isolation
 
 7. **Memory issues with tasks?**
-   - Read `steering/swift-concurrency/memory-management.md` for retain cycle prevention
+   - Read `concurrency/memory-management.md` for retain cycle prevention
 
 ## Triage-First Playbook (Common Errors -> Next Best Move)
 
 - SwiftLint concurrency-related warnings
-  - Use `steering/swift-concurrency/linting.md` for rule intent and preferred fixes; avoid dummy awaits as “fixes”.
+  - Use `concurrency/linting.md` for rule intent and preferred fixes; avoid dummy awaits as “fixes”.
 - SwiftLint `async_without_await` warning
-  - Remove `async` if not required; if required by protocol/override/@concurrent, prefer narrow suppression over adding fake awaits. See `steering/swift-concurrency/linting.md`.
+  - Remove `async` if not required; if required by protocol/override/@concurrent, prefer narrow suppression over adding fake awaits. See `concurrency/linting.md`.
 - "Sending value of non-Sendable type ... risks causing data races"
   - First: identify where the value crosses an isolation boundary
-  - Then: use `steering/swift-concurrency/sendable.md` and `steering/swift-concurrency/threading.md` (especially Swift 6.2 behavior changes)
+  - Then: use `concurrency/sendable.md` and `concurrency/threading.md` (especially Swift 6.2 behavior changes)
 - "Main actor-isolated ... cannot be used from a nonisolated context"
   - First: decide if it truly belongs on `@MainActor`
-  - Then: use `steering/swift-concurrency/actors.md` (global actors, `nonisolated`, isolated parameters) and `steering/swift-concurrency/threading.md` (default isolation)
+  - Then: use `concurrency/actors.md` (global actors, `nonisolated`, isolated parameters) and `concurrency/threading.md` (default isolation)
 - "Class property 'current' is unavailable from asynchronous contexts" (Thread APIs)
-  - Use `steering/swift-concurrency/threading.md` to avoid thread-centric debugging and rely on isolation + Instruments
+  - Use `concurrency/threading.md` to avoid thread-centric debugging and rely on isolation + Instruments
 - XCTest async errors like "wait(...) is unavailable from asynchronous contexts"
-  - Use `steering/swift-concurrency/testing.md` (`await fulfillment(of:)` and Swift Testing patterns)
+  - Use `concurrency/testing.md` (`await fulfillment(of:)` and Swift Testing patterns)
 - Core Data concurrency warnings/errors
-  - Use `steering/swift-concurrency/core-data.md` (DAO/`NSManagedObjectID`, default isolation conflicts)
+  - Use `concurrency/core-data.md` (DAO/`NSManagedObjectID`, default isolation conflicts)
 
 ## Core Patterns Reference
 
@@ -204,24 +200,27 @@ Key changes in Swift 6:
 - **Sendable requirements** enforced on boundaries
 - **Isolation checking** for all async boundaries
 
-For detailed migration steps, see `steering/swift-concurrency/migration.md`.
+For detailed migration steps, see `concurrency/migration.md`.
 
 ## Reference Files
 
 Load these files as needed for specific topics:
 
-- **`async-await-basics.md`** - async/await syntax, execution order, async let, URLSession patterns
-- **`tasks.md`** - Task lifecycle, cancellation, priorities, task groups, structured vs unstructured
-- **`threading.md`** - Thread/task relationship, suspension points, isolation domains, nonisolated
-- **`memory-management.md`** - Retain cycles in tasks, memory safety patterns
-- **`actors.md`** - Actor isolation, @MainActor, global actors, reentrancy, custom executors, Mutex
-- **`sendable.md`** - Sendable conformance, value/reference types, @unchecked, region isolation
-- **`linting.md`** - Concurrency-focused lint rules and SwiftLint `async_without_await`
-- **`async-sequences.md`** - AsyncSequence, AsyncStream, when to use vs regular async methods
-- **`core-data.md`** - NSManagedObject sendability, custom executors, isolation conflicts
-- **`performance.md`** - Profiling with Instruments, reducing suspension points, execution strategies
-- **`testing.md`** - XCTest async patterns, Swift Testing, concurrency testing utilities
-- **`migration.md`** - Swift 6 migration strategy, closure-to-async conversion, @preconcurrency, FRP migration
+### Concurrency
+
+- **`concurrency/async-await-basics.md`** - async/await syntax, execution order, async let, URLSession patterns
+- **`concurrency/tasks.md`** - Task lifecycle, cancellation, priorities, task groups, structured vs unstructured
+- **`concurrency/threading.md`** - Thread/task relationship, suspension points, isolation domains, nonisolated
+- **`concurrency/memory-management.md`** - Retain cycles in tasks, memory safety patterns
+- **`concurrency/actors.md`** - Actor isolation, @MainActor, global actors, reentrancy, custom executors, Mutex
+- **`concurrency/sendable.md`** - Sendable conformance, value/reference types, @unchecked, region isolation
+- **`concurrency/linting.md`** - Concurrency-focused lint rules and SwiftLint `async_without_await`
+- **`concurrency/async-sequences.md`** - AsyncSequence, AsyncStream, when to use vs regular async methods
+- **`concurrency/core-data.md`** - NSManagedObject sendability, custom executors, isolation conflicts
+- **`concurrency/performance.md`** - Profiling with Instruments, reducing suspension points, execution strategies
+- **`concurrency/testing.md`** - XCTest async patterns, Swift Testing, concurrency testing utilities
+- **`concurrency/migration.md`** - Swift 6 migration strategy, closure-to-async conversion, @preconcurrency, FRP migration
+- **`concurrency/glossary.md`** - Quick definitions of core concurrency terms
 
 ## Best Practices Summary
 
@@ -237,13 +236,21 @@ Load these files as needed for specific topics:
 
 - Confirm build settings (default isolation, strict concurrency, upcoming features) before interpreting diagnostics.
 - After refactors:
-  - Run tests, especially concurrency-sensitive ones (see `steering/swift-concurrency/testing.md`).
-  - If performance-related, verify with Instruments (see `steering/swift-concurrency/performance.md`).
-  - If lifetime-related, verify deinit/cancellation behavior (see `steering/swift-concurrency/memory-management.md`).
+  - Run tests, especially concurrency-sensitive ones (see `concurrency/testing.md`).
+  - If performance-related, verify with Instruments (see `concurrency/performance.md`).
+  - If lifetime-related, verify deinit/cancellation behavior (see `concurrency/memory-management.md`).
 
 ## Glossary
 
-See `steering/swift-concurrency/glossary.md` for quick definitions of core concurrency terms used across this skill.
+See `concurrency/glossary.md` for quick definitions of core concurrency terms used across this skill.
+
+# API Design
+
+- **`steering/swift-api-design-guidelines.md`** - Swift API design guidelines covering naming conventions, clarity at the point of use, fluent usage patterns, argument labels, documentation best practices, and general Swift conventions. Based on the official Swift.org API Design Guidelines.
+
+# General Swift Knowledge
+
+- **`steering/swift-general.md`** - General Swift coding assistant behavior: prefer Apple languages and frameworks, use Swift Testing over XCTest, favor Swift Concurrency over Dispatch/Combine, follow platform-aware conventions for iOS, macOS, watchOS, and visionOS.
 
 ---
 
